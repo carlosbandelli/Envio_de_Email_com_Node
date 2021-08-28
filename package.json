@@ -1,0 +1,23 @@
+{
+  "name": "Envio_de_Email_com_Node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosbandelli/Envio_de_Email_com_Node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosbandelli/Envio_de_Email_com_Node/issues"
+  },
+  "homepage": "https://github.com/carlosbandelli/Envio_de_Email_com_Node#readme",
+  "dependencies": {
+    "nodemailer": "^6.6.3"
+  }
+}

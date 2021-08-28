@@ -1,0 +1,97 @@
+Nodemailer:
+
+Usando mailtrap
+
+O nodemailer funciona com o conceito chamado transporter é como se fosse um carterio
+ENtão o que que o carteiro faz ele entrega carta, já o tranporte ele entrega e-mail
+Então vamos criar um transporter e alem disso vou dizer que nodemailer.createTransport
+e dentro desse transporter temos que passar informações da nossa conta de e-mail de onde nos
+queremos enviar nosso e-mail.
+ENtão, se temos uma conta chamada carlosbandelli@gmail.com e eu quero enviar o e-mail atravez dela
+então vou cadastrar essa conta aqui.
+
+Então, a primeira coisa que voce precisa fazer para cadastrar sua conta de e-mail de ENVIO é o HOST onde ta seu servidor de e-mail
+
+OBS:
+Dependendo de qual servido de e-mial voce usa seja : gmail, hostgator, umbler, yahoo, não importa, cada plataforma desse tem configurações diferentes
+dependendo de qual e-mail voce utilizar para envio, voce tem que pesquisar no google: dados de conexão smtp do gmail, pq o protocolo que o nodemailer usa para
+enviar e-mail eo SMTP(que é protocolo de envio de e-mail mais popular)
+1º colocar o host
+2º port
+3º secure - O protocolo smtp usa um sistema de criptografia SSL/TLS, porem nem todos os servidores dão suport a isso
+no caso o servidor da umble dá nao esse suporte
+ Aqui no nodemailer ele pergunta sobre isso usando o atributo chamado secure se o seu servidor tem a criptografia SSL/TLS, NESSE CASO voce coloca true se nao tive voce coloca false
+depois isso voce abre um objeto
+escrito auth e cooloca o login e senha do seu email
+
+Código:
+---------Estamos usando o mailtrap--------
+const nodemailer = require("nodemailer")
+let transporter = nodemailer.createTransport({
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    secure:false,
+    auth: {
+        user: "8b70b5345a0f91",
+        pass: "3ef17dccc6853c",
+    }
+})
+-------------Mailtrap--------------------
+
+Pronto nossa informações do e-mial de envio estão prontas
+após isso, nos vamos criar as configurações do email que nos queremos enviar
+então aqui vamos definir o conteudo do e-mail, pra quem vai o e-mail.
+então par anos fazer isso vamos chamr o nosso tranporter. send mail
+Primeiro campo que vamo colocar é o from que é quem ta enviando o email, então aqui nesse campo 
+é dividido em duas partes, primeiro seu nome o nomeda conta que ta enviando o e-mial
+e outro campo que ´enecessario que voce tem que colocar entre <> exatamente a conta de e-mail que voce colocou
+no primeiro tranporter é importante que voce faça isso si nao vai dar problema
+a partir disso é o To: para quem voce quer enviar esse e-mial
+e o subject o assunto do e-mail
+e o text: que é o conteudo que voce quer enviar
+e alem disso voce consegui uma versão html do seu email. por exemplo: se quiser ter uma e-mial mais bunito
+Feito isso voce ja definiu seu email completamente.
+
+---------- Códgio de envio -----------------------------------------
+
+transporter.sendMail({
+    from: "Carlos Bandelli <8b70b5345a0f91>",
+    to: "carlosbandelliv@gmail.com",
+    subject: "Oi, sou o Carlos e estou trabalhando com o nodemailer",
+    text: "Olá, sou o Carlos Bandelli, e estou gostando bastante da lib Nodemailer",
+    html: "Olá meu nome é Carlos Bandelli, e eu acho o <a href='https://guiadoprogramador.com'>nodemailer</a> muito legal!"
+})
+-----------------------------------------------------------------------------
+Então fecho que o envio de e-mial pe divido em duas partes:
+ 
+!
+1º - as informações eas credenciais, do e-mial que vai enviar
+
+2ª - voce defini o e-mil que vao ser enviado
+exemplo voce tem o cabeçalho que da pessoa que enviou o e-mail
+para quem voce quer enviar o email
+o tema do email
+o conteudo do e-mial em texto
+e o conteudo do e-mial em HTML.
+------------------------------------------------------------------------------------
+
+Resta o ultimo passo
+qu eé um promise qeu vai receber uma msg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
